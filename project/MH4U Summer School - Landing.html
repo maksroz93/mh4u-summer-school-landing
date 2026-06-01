@@ -1,0 +1,700 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MH4U Summer School 2026 — Від клініциста до лідера галузі</title>
+<meta name="description" content="Літня школа MH4U 2026 для молодих фахівців дитячого психічного здоров'я: виїзний інтенсив, практичні інструменти та спільнота лідерів змін." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --purple:#7500FF; --yellow:#FFD000; --pink:#FF6273; --carrot:#FF5300;
+    --sky:#00B5FF; --green:#00C950; --orange:#FFA200;
+    --black:#0A0A0A; --ink:#141414;
+    --gray-700:#3C3C3C; --gray-500:#6E6E6E; --gray-300:#C9C9C9; --gray-200:#E5E5E5; --gray-100:#F1F1F1;
+    --paper:#FFFFFF;
+    --ff-mono:'Roboto Mono', ui-monospace, 'Courier New', monospace;
+    --k:8px;
+    --maxw:1280px;
+    --navh:63px;
+  }
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; scroll-padding-top:calc(var(--navh) + 20px); }
+  html,body{ margin:0; padding:0; }
+  body{
+    font-family:var(--ff-mono);
+    background:var(--paper);
+    color:var(--ink);
+    font-size:14px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  img,svg{ max-width:100%; display:block; }
+  a{ color:var(--purple); text-decoration:none; }
+  :focus-visible{ outline:2px solid currentColor; outline-offset:3px; }
+  ::selection{ background:var(--yellow); color:var(--black); }
+
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 calc(var(--k)*6); }
+  @media (max-width:720px){ .wrap{ padding:0 calc(var(--k)*3); } }
+  .bg-purple{ background:var(--purple); }
+  .bg-yellow{ background:var(--yellow); }
+  .bg-pink{ background:var(--pink); }
+  .bg-carrot{ background:var(--carrot); }
+  .bg-sky{ background:var(--sky); }
+  .bg-green{ background:var(--green); }
+  .bg-orange{ background:var(--orange); }
+
+  .skip-link{
+    position:fixed; left:calc(var(--k)*2); top:calc(var(--k)*2); z-index:100;
+    transform:translateY(calc(-100% - var(--k)*3));
+    background:var(--yellow); color:var(--black); border:1px solid var(--ink);
+    padding:10px 14px; font-size:12px; font-weight:500;
+    text-transform:uppercase; letter-spacing:0.06em;
+    transition:transform .12s ease;
+  }
+  .skip-link:focus{ transform:translateY(0); }
+
+  /* ============ NAV ============ */
+  .nav{
+    position:sticky; top:0; z-index:50;
+    background:var(--paper);
+    border-bottom:1px solid var(--ink);
+    min-height:var(--navh);
+  }
+  .nav-inner{
+    max-width:var(--maxw); margin:0 auto;
+    padding:calc(var(--k)*1.5) calc(var(--k)*6);
+    display:flex; align-items:center; gap:calc(var(--k)*4);
+  }
+  @media (max-width:720px){ .nav-inner{ padding:calc(var(--k)*1.5) calc(var(--k)*3); } }
+  .nav-brand{ display:flex; align-items:center; gap:12px; flex-shrink:0; }
+  .nav-brand img{ height:38px; width:auto; }
+  .nav-brand .bt{
+    font-size:11px; line-height:1.2; text-transform:uppercase; letter-spacing:0.04em; color:var(--gray-500);
+  }
+  .nav-brand .bt b{ display:block; color:var(--ink); font-weight:500; letter-spacing:0; }
+  .nav-links{ display:flex; gap:calc(var(--k)*3); margin-left:auto; align-items:center; }
+  .nav-links a{
+    font-size:12px; text-transform:uppercase; letter-spacing:0.04em; color:var(--ink);
+    padding:6px 0; position:relative;
+  }
+  .nav-links a.soon{ color:var(--gray-300); pointer-events:none; }
+  .nav-links a.soon::after{
+    content:"скоро"; font-size:8px; letter-spacing:0.08em;
+    position:absolute; top:-6px; right:-30px; color:var(--gray-300);
+  }
+  .nav-links a:not(.soon):hover{ color:var(--purple); }
+  .nav-cta{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--purple); color:var(--paper);
+    padding:10px 18px; font-size:12px; font-weight:500;
+    text-transform:uppercase; letter-spacing:0.06em;
+    border:1px solid var(--purple); white-space:nowrap;
+    transition:transform .12s ease, box-shadow .12s ease;
+  }
+  .nav-cta:hover{ transform:translate(-1px,-1px); box-shadow:3px 3px 0 var(--ink); }
+  @media (max-width:980px){ .nav-links a[data-collapse]{ display:none; } }
+  @media (max-width:620px){
+    .nav-inner{ gap:calc(var(--k)*2); }
+    .nav-links{ gap:calc(var(--k)*2); }
+    .nav-brand img{ height:34px; }
+    .nav-brand .bt{ display:none; }
+    .nav-cta{ padding:9px 12px; font-size:11px; letter-spacing:0.04em; }
+  }
+  @media (max-width:420px){
+    .nav-links a[href="#program"]{ display:none; }
+    .nav-cta{ padding:9px 10px; font-size:10px; }
+  }
+
+  /* ============ HERO ============ */
+  .hero{
+    position:relative; overflow:hidden;
+    border-bottom:1px solid var(--ink);
+    background:var(--paper);
+    min-height:clamp(680px, calc(92svh - var(--navh)), 900px);
+    display:flex; flex-direction:column;
+  }
+  .hero > div.wrap{ flex:1; display:flex; flex-direction:column; }
+  .hero-symbol{
+    position:absolute; z-index:0;
+    top:50%; right:-160px; transform:translateY(-50%);
+    width:min(720px,62vw); aspect-ratio:1/1;
+    opacity:1; pointer-events:none;
+  }
+  .hero-symbol svg{ width:100%; height:100%; }
+  .hero .wrap{ position:relative; z-index:1; }
+  .hero-top{
+    display:flex; flex-wrap:wrap; gap:calc(var(--k)*2);
+    padding-top:calc(var(--k)*4);
+    font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--gray-500);
+  }
+  .hero-top .tag{
+    background:var(--ink); color:var(--paper); padding:5px 12px; font-weight:500; letter-spacing:0.1em;
+  }
+  .hero-top .tag.swiss{ background:var(--paper); color:var(--ink); border:1px solid var(--ink); }
+  .hero-top .open{ display:inline-flex; align-items:center; gap:8px; color:var(--ink); padding:5px 0; }
+  .hero-top .open .dot{ width:9px; height:9px; border-radius:50%; background:var(--green); display:inline-block; animation:blink 1.6s steps(1) infinite; }
+  @keyframes blink{ 50%{ opacity:.3; } }
+  .hero-body{ margin:auto 0; padding:calc(var(--k)*3) 0; max-width:none; }
+  .hero .school-mono{
+    font-size:12px; text-transform:uppercase; letter-spacing:0.18em; color:var(--purple);
+    margin:0 0 calc(var(--k)*2);
+  }
+  .hero h1{
+    font-size:88px;
+    line-height:0.92; letter-spacing:0; font-weight:500;
+    text-transform:uppercase; margin:0; width:max-content; max-width:100%;
+  }
+  .hero h1 .yr{ color:var(--purple); }
+  .hero .lead-line{
+    margin:calc(var(--k)*3) 0 0; max-width:34ch;
+  }
+  .hero .lead-line span{
+    font-size:26px; line-height:1.14; letter-spacing:0; font-weight:500;
+    text-transform:uppercase;
+  }
+  .hero .lead-line span b{ background:var(--yellow); color:var(--black); font-weight:500; padding:0 8px; box-decoration-break:clone; -webkit-box-decoration-break:clone; }
+  .hero-sub{
+    margin:calc(var(--k)*3) 0 0; max-width:58ch;
+    font-size:14px; line-height:1.6; color:var(--gray-700); text-wrap:pretty;
+  }
+  .hero-actions{ display:flex; flex-wrap:wrap; gap:calc(var(--k)*2); margin-top:calc(var(--k)*4); align-items:center; }
+  .hero-actions .note{ font-size:12px; text-transform:uppercase; letter-spacing:0.04em; color:var(--gray-500); }
+  .hero-actions .note b{ color:var(--ink); font-weight:500; }
+  @media (max-width:1120px){ .hero h1{ font-size:72px; } }
+  @media (max-width:720px){
+    .hero{ min-height:auto; }
+    .hero-symbol{ top:38%; right:-260px; width:520px; opacity:.45; }
+    .hero-top{ padding-top:calc(var(--k)*3); gap:calc(var(--k)*1.5); }
+    .hero-body{ padding:calc(var(--k)*7) 0 calc(var(--k)*5); }
+    .hero h1{ font-size:52px; }
+    .hero .lead-line span{ font-size:21px; }
+    .hero-sub{ font-size:13px; }
+    .hero-actions{ align-items:stretch; }
+    .hero-actions .note{ line-height:1.4; }
+  }
+  @media (max-width:420px){
+    .hero-symbol{ right:-300px; opacity:.3; }
+    .hero h1{ font-size:40px; }
+    .hero .lead-line span{ font-size:19px; }
+  }
+
+  /* hero quick-facts strip */
+  .facts{
+    border-top:1px solid var(--ink);
+    display:grid; grid-template-columns:repeat(4,1fr);
+    position:relative; z-index:1;
+  }
+  @media (max-width:720px){ .facts{ grid-template-columns:repeat(2,1fr); } }
+  .facts .f{
+    padding:calc(var(--k)*3) calc(var(--k)*3);
+    border-left:1px solid var(--ink);
+  }
+  .facts .f:first-child{ border-left:0; }
+  @media (max-width:720px){
+    .facts .f:nth-child(odd){ border-left:0; }
+    .facts .f:nth-child(n+3){ border-top:1px solid var(--ink); }
+  }
+  .facts dt{ font-size:10px; text-transform:uppercase; letter-spacing:0.08em; color:var(--gray-500); margin-bottom:8px; }
+  .facts dd{ margin:0; font-size:17px; font-weight:500; text-transform:uppercase; letter-spacing:0; line-height:1.1; text-wrap:balance; }
+  .facts dd small{ display:block; font-size:11px; color:var(--gray-500); text-transform:none; letter-spacing:0; font-weight:400; margin-top:5px; line-height:1.5; }
+  .facts--hero{ border-bottom:0; }
+
+  /* ============ BUTTON ============ */
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:10px;
+    padding:16px 26px; font-family:inherit; font-size:14px; font-weight:500;
+    text-transform:uppercase; letter-spacing:0.06em;
+    border:1px solid var(--ink); background:transparent; color:var(--ink);
+    cursor:pointer; text-decoration:none; white-space:nowrap;
+    transition:transform .12s ease, box-shadow .12s ease;
+  }
+  .btn .arrow{ display:inline-block; transition:transform .15s ease; }
+  .btn:hover{ transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink); }
+  .btn:hover .arrow{ transform:translateX(4px); }
+  .btn--purple{ background:var(--purple); color:var(--paper); border-color:var(--purple); }
+  .btn--purple:hover{ box-shadow:4px 4px 0 var(--ink); }
+  .btn--accent{ background:var(--yellow); color:var(--ink); border-color:var(--ink); }
+  .btn--lg{ padding:20px 34px; font-size:16px; }
+  @media (max-width:520px){
+    .btn{ width:100%; min-height:56px; padding:14px 18px; white-space:normal; text-align:center; }
+    .btn--lg{ padding:16px 20px; font-size:14px; }
+  }
+
+  /* ============ SECTION SHELL ============ */
+  .section{ padding:calc(var(--k)*13) 0; border-top:1px solid var(--ink); }
+  .section-head{
+    display:grid; grid-template-columns:200px 1fr; gap:calc(var(--k)*6);
+    align-items:start; margin-bottom:calc(var(--k)*8);
+  }
+  @media (max-width:760px){ .section-head{ grid-template-columns:1fr; gap:calc(var(--k)*2); } }
+  .section-num{ font-size:11px; text-transform:uppercase; letter-spacing:0.06em; color:var(--gray-500); }
+  .section-num b{ display:block; color:var(--ink); font-weight:500; margin-top:6px; font-size:13px; }
+  .section-title{
+    font-size:52px; line-height:1.0; letter-spacing:0;
+    font-weight:500; margin:0; text-transform:uppercase; text-wrap:balance;
+  }
+  .section-lede{
+    margin-top:calc(var(--k)*3); font-size:15px; line-height:1.65; color:var(--gray-700);
+    max-width:66ch; text-wrap:pretty;
+  }
+  @media (max-width:980px){ .section-title{ font-size:44px; } }
+  @media (max-width:720px){
+    .section{ padding:calc(var(--k)*9) 0; }
+    .section-title{ font-size:36px; }
+    .section-lede{ font-size:14px; }
+  }
+  @media (max-width:420px){ .section-title{ font-size:31px; } }
+
+  /* ============ INTRO / AUDIENCE ============ */
+  .audience{ display:grid; grid-template-columns:repeat(5,1fr); gap:1px; background:var(--ink); border:1px solid var(--ink); margin-top:calc(var(--k)*2); }
+  @media (max-width:860px){ .audience{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:460px){ .audience{ grid-template-columns:1fr; } }
+  .aud{
+    background:var(--paper); padding:calc(var(--k)*4) calc(var(--k)*3);
+    display:flex; flex-direction:column; gap:calc(var(--k)*2); min-height:150px;
+  }
+  .aud .dot{ width:14px; height:14px; border-radius:50%; }
+  .aud h4{ margin:0; font-size:14px; text-transform:uppercase; letter-spacing:0; font-weight:500; line-height:1.2; text-wrap:balance; }
+  .aud p{ margin:auto 0 0; font-size:11px; color:var(--gray-500); text-transform:uppercase; letter-spacing:0.04em; }
+
+  /* ============ LOGISTICS ============ */
+  .logi{ display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--ink); border:1px solid var(--ink); }
+  @media (max-width:720px){ .logi{ grid-template-columns:1fr; } }
+  .logi .cell{ background:var(--paper); padding:calc(var(--k)*5); display:flex; flex-direction:column; gap:10px; }
+  .logi .cell .ico-row{ display:flex; align-items:center; justify-content:space-between; }
+  .logi .cell .lbl{ font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--gray-500); }
+  .logi .cell .pellet{ width:18px; height:18px; border-radius:999px; }
+  .logi .cell .val{ font-size:22px; font-weight:500; text-transform:uppercase; letter-spacing:0; line-height:1.05; }
+  .logi .cell .desc{ font-size:13px; line-height:1.6; color:var(--gray-700); text-wrap:pretty; }
+  .logi-note{ margin-top:calc(var(--k)*3); font-size:12px; color:var(--gray-500); text-transform:uppercase; letter-spacing:0.04em; display:flex; gap:10px; align-items:baseline; }
+  .logi-note::before{ content:"›"; color:var(--purple); }
+  .logi-note--profile{ margin-top:calc(var(--k)*4); }
+
+  /* ============ PROGRAM BLOCKS ============ */
+  .prog{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--ink); border:1px solid var(--ink); }
+  @media (max-width:900px){ .prog{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:600px){ .prog{ grid-template-columns:1fr; } }
+  .pblock{
+    background:var(--paper); padding:calc(var(--k)*5); display:flex; flex-direction:column; gap:calc(var(--k)*2.5);
+    transition:background .15s ease; position:relative; min-height:300px;
+  }
+  .pblock:hover{ background:var(--gray-100); }
+  .pblock .pnum{
+    font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--gray-500);
+    display:flex; align-items:center; gap:10px;
+  }
+  .pblock .pnum .bar{ width:28px; height:6px; border-radius:999px; }
+  .pblock h4{ margin:0; font-size:19px; line-height:1.15; text-transform:uppercase; letter-spacing:0; font-weight:500; text-wrap:balance; }
+  .pblock p{ margin:0; font-size:13px; line-height:1.6; color:var(--gray-700); text-wrap:pretty; }
+  .pblock .fmt{ margin-top:auto; padding-top:calc(var(--k)*2); border-top:1px dashed var(--gray-300); font-size:10px; text-transform:uppercase; letter-spacing:0.06em; color:var(--gray-500); }
+
+  /* ============ TIMELINE ============ */
+  .tl{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--ink); border:1px solid var(--ink); }
+  @media (max-width:720px){ .tl{ grid-template-columns:1fr; } }
+  .tl .step{ background:var(--paper); padding:calc(var(--k)*5); display:flex; flex-direction:column; gap:12px; position:relative; }
+  .tl .step .when{ font-size:13px; font-weight:500; text-transform:uppercase; letter-spacing:0.02em; }
+  .tl .step .what{ font-size:13px; color:var(--gray-700); line-height:1.55; }
+  .tl .step .state{
+    display:inline-flex; align-items:center; gap:8px; font-size:10px; text-transform:uppercase; letter-spacing:0.06em;
+    padding:4px 10px; width:max-content;
+  }
+  .tl .step .state.done{ background:var(--green); color:var(--black); }
+  .tl .step .state.now{ background:var(--yellow); color:var(--black); }
+  .tl .step .state.next{ border:1px solid var(--gray-300); color:var(--gray-500); }
+  .tl .step .num{ position:absolute; top:calc(var(--k)*5); right:calc(var(--k)*5); font-size:11px; color:var(--gray-300); }
+
+  /* ============ COMING SOON ============ */
+  .soon-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:calc(var(--k)*2); }
+  @media (max-width:860px){ .soon-grid{ grid-template-columns:1fr; } }
+  .soon-card{
+    border:1px solid var(--ink); aspect-ratio:1/1.18; position:relative; overflow:hidden;
+    display:flex; flex-direction:column; justify-content:flex-end; padding:calc(var(--k)*4);
+    background:
+      repeating-linear-gradient(45deg, var(--gray-100) 0 11px, var(--paper) 11px 22px);
+  }
+  .soon-card .pill{
+    position:absolute; top:calc(var(--k)*4); left:calc(var(--k)*4);
+    width:46px; height:46px; border-radius:999px;
+  }
+  .soon-card .badge{
+    position:absolute; top:calc(var(--k)*4); right:calc(var(--k)*4);
+    font-size:10px; text-transform:uppercase; letter-spacing:0.08em; color:var(--paper);
+    background:var(--ink); padding:5px 10px;
+  }
+  .soon-card h4{ margin:0 0 8px; font-size:21px; text-transform:uppercase; letter-spacing:0; font-weight:500; line-height:1.1; }
+  .soon-card p{ margin:0; font-size:12px; line-height:1.55; color:var(--gray-700); text-wrap:pretty; }
+  @media (max-width:520px){ .soon-card{ aspect-ratio:auto; min-height:260px; } }
+
+  /* ============ FINAL CTA ============ */
+  .cta{
+    background:var(--purple); color:var(--paper);
+    position:relative; overflow:hidden;
+    border-top:1px solid var(--ink);
+  }
+  .cta-symbol{ position:absolute; right:-120px; bottom:-180px; width:520px; aspect-ratio:1/1; opacity:.5; pointer-events:none; }
+  .cta-symbol svg{ width:100%; height:100%; }
+  .cta .wrap{ position:relative; z-index:1; padding:calc(var(--k)*14) calc(var(--k)*6); }
+  @media (max-width:720px){ .cta .wrap{ padding:calc(var(--k)*10) calc(var(--k)*3); } }
+  .cta .tag{
+    display:inline-flex; background:var(--yellow); color:var(--black);
+    padding:6px 14px; font-size:11px; font-weight:500; text-transform:uppercase; letter-spacing:0.1em;
+    margin-bottom:calc(var(--k)*4);
+  }
+  .cta h2{
+    font-size:72px; line-height:0.95; letter-spacing:0;
+    text-transform:uppercase; font-weight:500; margin:0; max-width:20ch; text-wrap:balance;
+  }
+  .cta p{ margin:calc(var(--k)*4) 0 0; max-width:60ch; font-size:15px; line-height:1.65; color:rgba(255,255,255,.88); text-wrap:pretty; }
+  .cta p b{ color:var(--paper); font-weight:500; background:rgba(255,255,255,.14); padding:0 6px; }
+  .cta-actions{ margin-top:calc(var(--k)*7); display:flex; flex-wrap:wrap; gap:calc(var(--k)*2); align-items:center; }
+  .cta .btn--accent:hover{ box-shadow:4px 4px 0 var(--black); }
+  .cta .count{
+    display:flex; align-items:baseline; gap:12px; margin-left:auto;
+    text-transform:uppercase; letter-spacing:0.04em; font-size:11px; color:rgba(255,255,255,.8);
+  }
+  .cta .count b{ font-size:48px; line-height:0.9; letter-spacing:0; color:var(--yellow); font-weight:500; }
+  @media (max-width:980px){ .cta h2{ font-size:56px; } }
+  @media (max-width:720px){ .cta h2{ font-size:42px; } }
+  @media (max-width:420px){ .cta h2{ font-size:36px; } }
+  @media (max-width:620px){ .cta .count{ margin-left:0; margin-top:calc(var(--k)*2); } }
+
+  /* ============ FOOTER ============ */
+  .foot{ background:var(--black); color:var(--gray-300); padding:calc(var(--k)*9) 0 calc(var(--k)*5); }
+  .foot-grid{ display:grid; grid-template-columns:1.6fr 1fr 1fr; gap:calc(var(--k)*6); align-items:start; }
+  @media (max-width:720px){ .foot-grid{ grid-template-columns:1fr; gap:calc(var(--k)*5); } }
+  .foot-brand img{ height:46px; width:auto; filter:brightness(0) invert(1); }
+  .foot-brand p{ margin:calc(var(--k)*3) 0 0; font-size:12px; line-height:1.6; color:var(--gray-300); text-transform:uppercase; letter-spacing:0.02em; max-width:42ch; }
+  .foot h5{ color:var(--paper); font-size:12px; margin:0 0 calc(var(--k)*2); text-transform:uppercase; font-weight:500; letter-spacing:0.06em; }
+  .foot p.row{ margin:0 0 8px; font-size:12px; text-transform:uppercase; letter-spacing:0.02em; }
+  .foot a{ color:var(--yellow); }
+  .foot a:hover{ text-decoration:underline; text-underline-offset:3px; }
+  .foot-apply{ margin-top:calc(var(--k)*3); }
+  .foot-bottom{
+    margin-top:calc(var(--k)*7); padding-top:calc(var(--k)*3);
+    border-top:1px solid rgba(255,255,255,.12);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:calc(var(--k)*2);
+    font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:var(--gray-500);
+  }
+  @media (max-width:520px){
+    .logi .cell,
+    .pblock,
+    .tl .step{ padding:calc(var(--k)*3); }
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{ scroll-behavior:auto; }
+    *,*::before,*::after{
+      animation-duration:.01ms !important;
+      animation-iteration-count:1 !important;
+      scroll-behavior:auto !important;
+      transition-duration:.01ms !important;
+    }
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#about">Перейти до змісту</a>
+
+<!-- ============ NAV ============ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="#top" aria-label="MH4U Summer School">
+      <img src="assets/mh4u-logo.png" alt="MH4U" />
+      <span class="bt">Літня школа<b>Summer School 2026</b></span>
+    </a>
+    <div class="nav-links">
+      <a href="#about" data-collapse>Про школу</a>
+      <a href="#logistics" data-collapse>Логістика</a>
+      <a href="#program">Програма</a>
+      <a href="#speakers" class="soon" data-collapse aria-disabled="true" tabindex="-1">Спікери</a>
+      <a href="#timeline" data-collapse>Відбір</a>
+      <a class="nav-cta" href="https://docs.google.com/forms/d/1ixktZtbZDKMSo-9HHKmElhL3noa-hmHMNVOW6KnojFc/viewform?edit_requested=true" target="_blank" rel="noopener">Подати заявку</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="top" data-screen-label="01 Hero">
+  <div class="hero-symbol" aria-hidden="true"><svg viewBox="-260 -260 520 520" id="hero-sym"></svg></div>
+  <div class="wrap">
+    <div class="hero-top">
+      <span class="tag">Mental Health for Ukraine</span>
+      <span class="tag swiss">Українсько-швейцарський проєкт</span>
+      <span class="open"><span class="dot"></span>Реєстрація відкрита</span>
+    </div>
+
+    <div class="hero-body">
+      <p class="school-mono">MH4U · Літня школа · 2026</p>
+      <h1>Від клініциста<br/>до лідера<br/><span class="yr">галузі</span></h1>
+      <p class="lead-line"><span>Доєднуйся до спільноти, що <b>змінює правила гри</b> в охороні психічного здоров'я</span></p>
+      <p class="hero-sub">Виїзний інтенсив у Карпатах для молодих дитячих психіатрів, неврологів, педіатрів, клінічних психологів та терапевтів мовлення. Практичні інструменти, щоб стати лідером змін у своєму медичному закладі та громаді.</p>
+      <div class="hero-actions">
+        <a class="btn btn--purple btn--lg" href="https://docs.google.com/forms/d/1ixktZtbZDKMSo-9HHKmElhL3noa-hmHMNVOW6KnojFc/viewform?edit_requested=true" target="_blank" rel="noopener">Подати заявку на участь <span class="arrow">→</span></a>
+        <span class="note">Лише <b>40 місць</b> · участь безкоштовна</span>
+      </div>
+    </div>
+  </div>
+
+  <dl class="facts facts--hero wrap">
+    <div class="f"><dt>Дати</dt><dd>5—7 серпня<small>2026 рік</small></dd></div>
+    <div class="f"><dt>Формат</dt><dd>Виїзний<small>Львівська / Івано-Франківська обл.</small></dd></div>
+    <div class="f"><dt>Тривалість</dt><dd>2 дні<small>інтенсивної роботи</small></dd></div>
+    <div class="f"><dt>Вартість</dt><dd>0 ₴<small>усе покривають організатори</small></dd></div>
+  </dl>
+</header>
+
+<main>
+<!-- ============ ABOUT / AUDIENCE ============ -->
+<section class="section" id="about" data-screen-label="02 About">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">01<b>Про школу</b></div>
+      <div>
+        <h2 class="section-title">Спільнота, що змінює систему</h2>
+        <p class="section-lede">У межах українсько-швейцарського проєкту «Психічне здоров'я для України» ми створюємо ексклюзивний триденний інтенсив для молодих фахівців дитячого психічного здоров'я. Мета — сформувати потужну проактивну спільноту, здатну змінювати охорону здоров'я на місцях. Ми шукаємо 40 високомотивованих спеціалістів із різних куточків України.</p>
+      </div>
+    </div>
+
+    <div class="audience">
+      <div class="aud"><span class="dot bg-purple"></span><h4>Дитячі психіатри</h4><p>Ядро спільноти</p></div>
+      <div class="aud"><span class="dot bg-sky"></span><h4>Дитячі неврологи</h4><p>Мультидисциплінарний погляд</p></div>
+      <div class="aud"><span class="dot bg-green"></span><h4>Педіатри</h4><p>Перша лінія допомоги</p></div>
+      <div class="aud"><span class="dot bg-pink"></span><h4>Клінічні психологи</h4><p>Терапевтична робота</p></div>
+      <div class="aud"><span class="dot bg-carrot"></span><h4>Терапевти мовлення</h4><p>Логопеди / SLT</p></div>
+    </div>
+    <p class="logi-note logi-note--profile">Портрет учасника: молоді спеціалісти з перших 5—10 років практики, які працюють у КНП чи державних лікарнях і шукають інструменти, щоб стати лідерами змін.</p>
+  </div>
+</section>
+
+<!-- ============ LOGISTICS ============ -->
+<section class="section" id="logistics" data-screen-label="03 Logistics">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">02<b>Логістика</b></div>
+      <div>
+        <h2 class="section-title">Усю організацію беремо на себе</h2>
+        <p class="section-lede">Щоб ви могли повністю зосередитися на професійному перезавантаженні та нетворкінгу.</p>
+      </div>
+    </div>
+
+    <div class="logi">
+      <div class="cell">
+        <div class="ico-row"><span class="lbl">Локація</span><span class="pellet bg-sky"></span></div>
+        <div class="val">Виїзний формат</div>
+        <p class="desc">Львівська або Івано-Франківська область. Точна адреса буде повідомлена відібраним учасникам.</p>
+      </div>
+      <div class="cell">
+        <div class="ico-row"><span class="lbl">Дати</span><span class="pellet bg-purple"></span></div>
+        <div class="val">5—7 серпня 2026</div>
+        <p class="desc">Перша половина серпня. Заплануйте поїздку заздалегідь — трансфер організовуємо ми.</p>
+      </div>
+      <div class="cell">
+        <div class="ico-row"><span class="lbl">Тривалість</span><span class="pellet bg-green"></span></div>
+        <div class="val">2 дні інтенсиву</div>
+        <p class="desc">Насичена програма практикумів, симуляцій та вечірнього нетворкінгу.</p>
+      </div>
+      <div class="cell">
+        <div class="ico-row"><span class="lbl">Вартість</span><span class="pellet bg-yellow"></span></div>
+        <div class="val">Повністю покрита</div>
+        <p class="desc">Участь у програмі, проживання, триразове харчування та трансфер покривають організатори.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROGRAM ============ -->
+<section class="section" id="program" data-screen-label="04 Program">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">03<b>Що на вас чекає</b></div>
+      <div>
+        <h2 class="section-title">Те, чому не вчать в університетах</h2>
+        <p class="section-lede">Кожен блок працює на вашу спроможність як лідера — у форматі практикумів, симуляцій та відвертих обговорень.</p>
+      </div>
+    </div>
+
+    <div class="prog">
+      <div class="pblock">
+        <div class="pnum"><span class="bar bg-pink"></span>Блок 01</div>
+        <h4>Деескалація та етична комунікація</h4>
+        <p>Відпрацювання найскладніших ситуацій — агресія в кабінеті, гіперконтроль родичів, тиск щодо діагнозів — у безпечному форматі моделювання за підтримки досвідчених менторів.</p>
+        <div class="fmt">Peer-to-peer · симуляції</div>
+      </div>
+      <div class="pblock">
+        <div class="pnum"><span class="bar bg-purple"></span>Блок 02</div>
+        <h4>Юридичний захист та права лікаря</h4>
+        <p>Практичний воркшоп зі створення вашої «правової броні»: документація як захист, грамотна реакція на необґрунтовані скарги та законне відстоювання власних кордонів.</p>
+        <div class="fmt">Воркшоп · кейси</div>
+      </div>
+      <div class="pblock">
+        <div class="pnum"><span class="bar bg-sky"></span>Блок 03</div>
+        <h4>Мультидисциплінарна взаємодія</h4>
+        <p>Розбір реальних наскрізних кейсів у змішаних командах — спільно з неврологами, педіатрами та психологами — для безперервного маршруту пацієнта в громаді.</p>
+        <div class="fmt">Командна робота</div>
+      </div>
+      <div class="pblock">
+        <div class="pnum"><span class="bar bg-green"></span>Блок 04</div>
+        <h4>Адвокація та «Профспілки 2.0»</h4>
+        <p>Як бути почутим у системі, захищати професійні інтереси фахівців дитячого психічного здоров'я та створювати впливові локальні спільноти.</p>
+        <div class="fmt">Стратегія · дискусії</div>
+      </div>
+      <div class="pblock">
+        <div class="pnum"><span class="bar bg-carrot"></span>Блок 05</div>
+        <h4>Інструменти сучасного лідера</h4>
+        <p>Гнучкий прикладний слот про цифрові й управлінські навички: від інструментів ШІ для оптимізації рутини до залучення грантів та роботи з пакетами НСЗУ.</p>
+        <div class="fmt">Гнучкий слот · прикладний</div>
+      </div>
+      <div class="pblock">
+        <div class="pnum"><span class="bar bg-orange"></span>Блок 06</div>
+        <h4>Вечірній нетворкінг</h4>
+        <p>Камінні бесіди, відвертий обмін «історіями успіхів та факапів» і можливість побудувати глибокі зв'язки з 40 найактивнішими колегами з усієї України.</p>
+        <div class="fmt">Неформально · ввечері</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMING SOON ============ -->
+<section class="section" id="speakers" data-screen-label="05 Coming soon">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">04<b>Незабаром</b></div>
+      <div>
+        <h2 class="section-title">Деталі, які ще готуємо</h2>
+        <p class="section-lede">Ми наповнюємо ці розділи. Спікери та детальний розклад зʼявляться до старту, а звіт і фотогалерея — одразу після події.</p>
+      </div>
+    </div>
+
+    <div class="soon-grid">
+      <div class="soon-card">
+        <span class="pill bg-purple"></span>
+        <span class="badge">Незабаром</span>
+        <h4>Спікери<br/>та ментори</h4>
+        <p>Топ-експерти України, які формуватимуть мислення нової генерації фахівців. Оголосимо найближчим часом.</p>
+      </div>
+      <div class="soon-card">
+        <span class="pill bg-sky"></span>
+        <span class="badge">Незабаром</span>
+        <h4>Детальна<br/>програма</h4>
+        <p>Погодинний розклад двох днів — сесії, практикуми та вечірні активності. Опублікуємо ближче до події.</p>
+      </div>
+      <div class="soon-card">
+        <span class="pill bg-green"></span>
+        <span class="badge">Після події</span>
+        <h4>Звіт<br/>та фото</h4>
+        <p>Підсумки школи, ключові інсайти та фотогалерея. Зʼявиться одразу після завершення інтенсиву.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TIMELINE ============ -->
+<section class="section" id="timeline" data-screen-label="06 Timeline">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">05<b>Відбір</b></div>
+      <div>
+        <h2 class="section-title">Таймлайн відбору</h2>
+        <p class="section-lede">Подавайте заявку індивідуально або разом з колегою зі своєї громади — командні заявки мають пріоритет.</p>
+      </div>
+    </div>
+
+    <div class="tl">
+      <div class="step">
+        <span class="num">01</span>
+        <span class="state done">● Відкрито</span>
+        <div class="when">Кінець травня</div>
+        <div class="what">Відкриття реєстрації. Прийом заявок розпочато.</div>
+      </div>
+      <div class="step">
+        <span class="num">02</span>
+        <span class="state now">● Триває</span>
+        <div class="when">20 червня</div>
+        <div class="what">Останній день прийому заявок. Не відкладайте подачу.</div>
+      </div>
+      <div class="step">
+        <span class="num">03</span>
+        <span class="state next">○ Попереду</span>
+        <div class="when">10 липня</div>
+        <div class="what">Оголошення результатів та розсилка запрошень відібраним учасникам.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="cta" id="apply" data-screen-label="07 Apply">
+  <div class="cta-symbol" aria-hidden="true"><svg viewBox="-260 -260 520 520" id="cta-sym"></svg></div>
+  <div class="wrap">
+    <span class="tag">40 місць · Open Call</span>
+    <h2>Готові змінити свою практику та громаду?</h2>
+    <p>Ми шукаємо 40 мотивованих фахівців. Подавайте заявку індивідуально або разом з колегою зі своєї громади — <b>командні заявки мають пріоритет.</b></p>
+    <div class="cta-actions">
+      <a class="btn btn--accent btn--lg" href="https://docs.google.com/forms/d/1ixktZtbZDKMSo-9HHKmElhL3noa-hmHMNVOW6KnojFc/viewform?edit_requested=true" target="_blank" rel="noopener">Подати заявку на участь <span class="arrow">→</span></a>
+      <div class="count"><b>40</b><span>місць<br/>усього</span></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot" data-screen-label="08 Footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="assets/mh4u-logo.png" alt="MH4U — Психічне здоров'я для України" />
+        <p>Психічне здоров'я для України — українсько-швейцарський проєкт. Дбаємо про психічне здоров'я мільйонів.</p>
+      </div>
+      <div>
+        <h5>Навігація</h5>
+        <p class="row"><a href="#about">Про школу</a></p>
+        <p class="row"><a href="#logistics">Логістика</a></p>
+        <p class="row"><a href="#program">Програма</a></p>
+        <p class="row"><a href="#timeline">Таймлайн відбору</a></p>
+      </div>
+      <div>
+        <h5>Контакти</h5>
+        <p class="row">Сайт проєкту</p>
+        <p class="row"><a href="https://mh4u.in.ua" target="_blank" rel="noopener">mh4u.in.ua</a></p>
+        <p class="row foot-apply"><a href="https://docs.google.com/forms/d/1ixktZtbZDKMSo-9HHKmElhL3noa-hmHMNVOW6KnojFc/viewform?edit_requested=true" target="_blank" rel="noopener">Подати заявку →</a></p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>MH4U Summer School 2026 · Психічне здоров'я для України</span>
+      <span>Українсько-швейцарський проєкт</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const colors={ purple:'#7500FF', yellow:'#FFD000', pink:'#FF6273', carrot:'#FF5300', sky:'#00B5FF', green:'#00C950', orange:'#FFA200', paper:'#FFFFFF' };
+  const palette=[colors.purple,colors.yellow,colors.pink,colors.carrot,colors.sky,colors.green,colors.orange];
+  function genDots(count,scale,mode,opts){
+    opts=opts||{}; const skipInner=opts.skipInner!=null?opts.skipInner:40; const dotR=opts.dotR!=null?opts.dotR:4.6;
+    const dots=[]; const golden=137.508*Math.PI/180;
+    for(let n=skipInner;n<count+skipInner;n++){
+      const a=n*golden; const r=scale*Math.sqrt(n);
+      const x=r*Math.cos(a), y=r*Math.sin(a);
+      let fill;
+      if(mode==='inverse') fill=colors.paper;
+      else if(mode==='color') fill=palette[(n*7+3)%palette.length];
+      else fill=colors.purple;
+      dots.push({x,y,r:dotR,fill});
+    }
+    return dots;
+  }
+  function render(id,mode,count,scale,opts){
+    const svg=document.getElementById(id); if(!svg) return;
+    svg.innerHTML=genDots(count,scale,mode,opts).map(d=>`<circle cx="${d.x.toFixed(2)}" cy="${d.y.toFixed(2)}" r="${d.r.toFixed(2)}" fill="${d.fill}"/>`).join('');
+  }
+  render('hero-sym','color',300,14);
+  render('cta-sym','inverse',280,14);
+})();
+</script>
+
+</body>
+</html>
