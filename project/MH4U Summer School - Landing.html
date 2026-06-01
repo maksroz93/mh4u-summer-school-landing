@@ -313,6 +313,15 @@
   .outcome h4{ margin:0; font-size:19px; line-height:1.15; text-transform:uppercase; font-weight:500; text-wrap:balance; }
   .outcome p{ margin:auto 0 0; font-size:13px; line-height:1.6; color:var(--gray-700); text-wrap:pretty; }
 
+  /* ============ LOCATION VISUAL ============ */
+  .location-showcase{ padding-top:0; background:var(--paper); border-top:0; }
+  .location-band{ margin:0; border:1px solid var(--ink); overflow:hidden; background:var(--gray-100); }
+  .location-band img{
+    width:100%; height:auto; aspect-ratio:1536 / 340;
+    object-fit:cover; object-position:center;
+  }
+  @media (max-width:720px){ .location-band img{ aspect-ratio:16 / 7; } }
+
   /* ============ LOGISTICS ============ */
   .logi{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--ink); border:1px solid var(--ink); }
   @media (max-width:860px){ .logi{ grid-template-columns:1fr; } }
@@ -634,6 +643,14 @@
 
 <!-- ============ LOGISTICS ============ -->
 <section class="section" id="logistics" data-screen-label="05 Logistics">
+  <!-- ============ LOCATION VISUAL ============ -->
+<section class="section location-showcase" id="location" data-screen-label="06 Location">
+  <div class="wrap">
+    <figure class="location-band">
+      <img src="assets/summer-school-location-band.jpg" alt="Учасники літньої школи в гірській локації" width="1536" height="340" loading="lazy" />
+    </figure>
+  </div>
+</section>
   <div class="wrap">
     <div class="section-head">
       <div class="section-num">04<b>Логістика</b></div>
