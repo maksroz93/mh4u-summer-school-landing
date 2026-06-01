@@ -117,7 +117,7 @@
     min-height:clamp(680px, calc(92svh - var(--navh)), 900px);
     display:flex; flex-direction:column;
   }
-  .hero > div.wrap{ flex:1; display:flex; flex-direction:column; }
+  .hero > div.wrap{ flex:1; display:flex; flex-direction:column; width:100%; }
   .hero-symbol{
     position:absolute; z-index:0;
     top:50%; right:-160px; transform:translateY(-50%);
@@ -150,7 +150,7 @@
   }
   .hero h1 .yr{ color:var(--purple); }
   .hero .lead-line{
-    margin:calc(var(--k)*3) 0 0; max-width:34ch;
+    margin:calc(var(--k)*3) 0 0; max-width:58ch;
   }
   .hero .lead-line span{
     font-size:26px; line-height:1.14; letter-spacing:0; font-weight:500;
@@ -230,6 +230,7 @@
     display:grid; grid-template-columns:200px 1fr; gap:calc(var(--k)*6);
     align-items:start; margin-bottom:calc(var(--k)*8);
   }
+  .section-head--solo{ margin-bottom:0; }
   @media (max-width:760px){ .section-head{ grid-template-columns:1fr; gap:calc(var(--k)*2); } }
   .section-num{ font-size:11px; text-transform:uppercase; letter-spacing:0.06em; color:var(--gray-500); }
   .section-num b{ display:block; color:var(--ink); font-weight:500; margin-top:6px; font-size:13px; }
@@ -250,16 +251,60 @@
   @media (max-width:420px){ .section-title{ font-size:31px; } }
 
   /* ============ INTRO / AUDIENCE ============ */
-  .audience{ display:grid; grid-template-columns:repeat(5,1fr); gap:1px; background:var(--ink); border:1px solid var(--ink); margin-top:calc(var(--k)*2); }
-  @media (max-width:860px){ .audience{ grid-template-columns:repeat(2,1fr); } }
-  @media (max-width:460px){ .audience{ grid-template-columns:1fr; } }
-  .aud{
-    background:var(--paper); padding:calc(var(--k)*4) calc(var(--k)*3);
-    display:flex; flex-direction:column; gap:calc(var(--k)*2); min-height:150px;
+  .audience{
+    list-style:none; margin:calc(var(--k)*3) 0 0; padding:0;
+    display:flex; flex-wrap:wrap; gap:calc(var(--k)*1.5);
   }
-  .aud .dot{ width:14px; height:14px; border-radius:50%; }
-  .aud h4{ margin:0; font-size:14px; text-transform:uppercase; letter-spacing:0; font-weight:500; line-height:1.2; text-wrap:balance; }
-  .aud p{ margin:auto 0 0; font-size:11px; color:var(--gray-500); text-transform:uppercase; letter-spacing:0.04em; }
+  .aud{
+    border:1px solid var(--ink); background:var(--paper);
+    padding:calc(var(--k)*1.5) calc(var(--k)*2);
+    display:inline-flex; align-items:center; gap:calc(var(--k)*1.5);
+  }
+  .aud .dot{ width:12px; height:12px; border-radius:50%; flex:0 0 auto; }
+  .aud h4{ margin:0; font-size:14px; text-transform:uppercase; letter-spacing:0; font-weight:500; line-height:1.15; }
+
+  .criteria{ margin-top:calc(var(--k)*5); }
+  .criteria-title{
+    margin:0 0 calc(var(--k)*2); font-size:13px; font-weight:500;
+    text-transform:uppercase; letter-spacing:0.06em;
+  }
+  .criteria-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+    background:var(--ink); border:1px solid var(--ink);
+  }
+  @media (max-width:900px){ .criteria-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:520px){ .criteria-grid{ grid-template-columns:1fr; } }
+  .criterion{
+    background:var(--paper); padding:calc(var(--k)*3);
+    min-height:150px; display:flex; flex-direction:column; gap:calc(var(--k)*2);
+  }
+  .criterion .idx{ font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:var(--purple); }
+  .criterion h4{ margin:0; font-size:15px; line-height:1.2; text-transform:uppercase; font-weight:500; }
+  .criterion p{ margin:auto 0 0; font-size:12px; line-height:1.55; color:var(--gray-700); text-wrap:pretty; }
+  .participant-cta{
+    margin-top:calc(var(--k)*4); border:1px solid var(--ink);
+    background:var(--yellow); color:var(--black);
+    padding:calc(var(--k)*3); display:flex; align-items:center; justify-content:space-between;
+    gap:calc(var(--k)*3);
+  }
+  .participant-cta p{ margin:0; font-size:14px; line-height:1.45; max-width:62ch; }
+  .participant-cta p b{ font-weight:500; }
+  .participant-cta .btn{ background:var(--paper); flex:0 0 auto; }
+  @media (max-width:760px){ .participant-cta{ align-items:stretch; flex-direction:column; } }
+
+  /* ============ OUTCOMES ============ */
+  .outcomes{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
+    background:var(--ink); border:1px solid var(--ink); margin-top:calc(var(--k)*7);
+  }
+  @media (max-width:760px){ .outcomes{ grid-template-columns:1fr; } }
+  .outcome{
+    background:var(--paper); padding:calc(var(--k)*4);
+    min-height:190px; display:flex; flex-direction:column; gap:calc(var(--k)*2);
+  }
+  .outcome .idx{ font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--gray-500); }
+  .outcome h4{ margin:0; font-size:19px; line-height:1.15; text-transform:uppercase; font-weight:500; text-wrap:balance; }
+  .outcome p{ margin:auto 0 0; font-size:13px; line-height:1.6; color:var(--gray-700); text-wrap:pretty; }
 
   /* ============ LOGISTICS ============ */
   .logi{ display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--ink); border:1px solid var(--ink); }
@@ -308,17 +353,15 @@
   .tl .step .num{ position:absolute; top:calc(var(--k)*5); right:calc(var(--k)*5); font-size:11px; color:var(--gray-300); }
 
   /* ============ COMING SOON ============ */
-  .soon-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:calc(var(--k)*2); }
+  .soon-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--ink); border:1px solid var(--ink); }
   @media (max-width:860px){ .soon-grid{ grid-template-columns:1fr; } }
   .soon-card{
-    border:1px solid var(--ink); aspect-ratio:1/1.18; position:relative; overflow:hidden;
-    display:flex; flex-direction:column; justify-content:flex-end; padding:calc(var(--k)*4);
-    background:
-      repeating-linear-gradient(45deg, var(--gray-100) 0 11px, var(--paper) 11px 22px);
+    position:relative; overflow:hidden;
+    display:flex; flex-direction:column; justify-content:flex-start; gap:calc(var(--k)*2);
+    min-height:170px; padding:calc(var(--k)*4); background:var(--paper);
   }
   .soon-card .pill{
-    position:absolute; top:calc(var(--k)*4); left:calc(var(--k)*4);
-    width:46px; height:46px; border-radius:999px;
+    width:30px; height:10px; border-radius:999px;
   }
   .soon-card .badge{
     position:absolute; top:calc(var(--k)*4); right:calc(var(--k)*4);
@@ -327,7 +370,7 @@
   }
   .soon-card h4{ margin:0 0 8px; font-size:21px; text-transform:uppercase; letter-spacing:0; font-weight:500; line-height:1.1; }
   .soon-card p{ margin:0; font-size:12px; line-height:1.55; color:var(--gray-700); text-wrap:pretty; }
-  @media (max-width:520px){ .soon-card{ aspect-ratio:auto; min-height:260px; } }
+  @media (max-width:520px){ .soon-card{ min-height:0; } }
 
   /* ============ FINAL CTA ============ */
   .cta{
@@ -357,6 +400,14 @@
     text-transform:uppercase; letter-spacing:0.04em; font-size:11px; color:rgba(255,255,255,.8);
   }
   .cta .count b{ font-size:48px; line-height:0.9; letter-spacing:0; color:var(--yellow); font-weight:500; }
+  .trust-row{
+    margin-top:calc(var(--k)*6); padding-top:calc(var(--k)*3);
+    border-top:1px solid rgba(255,255,255,.25);
+    display:flex; flex-wrap:wrap; gap:calc(var(--k)*3);
+    color:rgba(255,255,255,.82); font-size:11px; text-transform:uppercase; letter-spacing:0.04em;
+  }
+  .trust-row b{ color:var(--paper); font-weight:500; }
+  .trust-row a{ color:var(--yellow); }
   @media (max-width:980px){ .cta h2{ font-size:56px; } }
   @media (max-width:720px){ .cta h2{ font-size:42px; } }
   @media (max-width:420px){ .cta h2{ font-size:36px; } }
@@ -407,10 +458,11 @@
     </a>
     <div class="nav-links">
       <a href="#about" data-collapse>Про школу</a>
-      <a href="#logistics" data-collapse>Логістика</a>
       <a href="#program">Програма</a>
-      <a href="#speakers" class="soon" data-collapse aria-disabled="true" tabindex="-1">Спікери</a>
+      <a href="#participants" data-collapse>Учасники</a>
+      <a href="#logistics" data-collapse>Логістика</a>
       <a href="#timeline" data-collapse>Відбір</a>
+      <a href="#speakers" class="soon" data-collapse aria-disabled="true" tabindex="-1">Спікери</a>
       <a class="nav-cta" href="https://docs.google.com/forms/d/1ixktZtbZDKMSo-9HHKmElhL3noa-hmHMNVOW6KnojFc/viewform?edit_requested=true" target="_blank" rel="noopener">Подати заявку</a>
     </div>
   </div>
@@ -430,7 +482,7 @@
       <p class="school-mono">MH4U · Літня школа · 2026</p>
       <h1>Від клініциста<br/>до лідера<br/><span class="yr">галузі</span></h1>
       <p class="lead-line"><span>Доєднуйся до спільноти, що <b>змінює правила гри</b> в охороні психічного здоров'я</span></p>
-      <p class="hero-sub">Виїзний інтенсив у Карпатах для молодих дитячих психіатрів, неврологів, педіатрів, клінічних психологів та терапевтів мовлення. Практичні інструменти, щоб стати лідером змін у своєму медичному закладі та громаді.</p>
+      <p class="hero-sub">Виїзний інтенсив для молодих дитячих психіатрів, неврологів, педіатрів, клінічних психологів та терапевтів мови та мовлення. Практичні інструменти, щоб стати лідером змін у своєму медичному закладі та громаді.</p>
       <div class="hero-actions">
         <a class="btn btn--purple btn--lg" href="https://docs.google.com/forms/d/1ixktZtbZDKMSo-9HHKmElhL3noa-hmHMNVOW6KnojFc/viewform?edit_requested=true" target="_blank" rel="noopener">Подати заявку на участь <span class="arrow">→</span></a>
         <span class="note">Лише <b>40 місць</b> · участь безкоштовна</span>
@@ -440,17 +492,17 @@
 
   <dl class="facts facts--hero wrap">
     <div class="f"><dt>Дати</dt><dd>5—7 серпня<small>2026 рік</small></dd></div>
-    <div class="f"><dt>Формат</dt><dd>Виїзний<small>Львівська / Івано-Франківська обл.</small></dd></div>
-    <div class="f"><dt>Тривалість</dt><dd>2 дні<small>інтенсивної роботи</small></dd></div>
+    <div class="f"><dt>Формат</dt><dd>ОФЛАЙН<small>Львівська / Івано-Франківська обл.</small></dd></div>
+    <div class="f"><dt>Тривалість</dt><dd>3 дні<small>інтенсивної роботи</small></dd></div>
     <div class="f"><dt>Вартість</dt><dd>0 ₴<small>усе покривають організатори</small></dd></div>
   </dl>
 </header>
 
 <main>
-<!-- ============ ABOUT / AUDIENCE ============ -->
+<!-- ============ ABOUT ============ -->
 <section class="section" id="about" data-screen-label="02 About">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head section-head--solo">
       <div class="section-num">01<b>Про школу</b></div>
       <div>
         <h2 class="section-title">Спільнота, що змінює систему</h2>
@@ -458,88 +510,61 @@
       </div>
     </div>
 
-    <div class="audience">
-      <div class="aud"><span class="dot bg-purple"></span><h4>Дитячі психіатри</h4><p>Ядро спільноти</p></div>
-      <div class="aud"><span class="dot bg-sky"></span><h4>Дитячі неврологи</h4><p>Мультидисциплінарний погляд</p></div>
-      <div class="aud"><span class="dot bg-green"></span><h4>Педіатри</h4><p>Перша лінія допомоги</p></div>
-      <div class="aud"><span class="dot bg-pink"></span><h4>Клінічні психологи</h4><p>Терапевтична робота</p></div>
-      <div class="aud"><span class="dot bg-carrot"></span><h4>Терапевти мовлення</h4><p>Логопеди / SLT</p></div>
-    </div>
-    <p class="logi-note logi-note--profile">Портрет учасника: молоді спеціалісти з перших 5—10 років практики, які працюють у КНП чи державних лікарнях і шукають інструменти, щоб стати лідерами змін.</p>
-  </div>
-</section>
-
-<!-- ============ LOGISTICS ============ -->
-<section class="section" id="logistics" data-screen-label="03 Logistics">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="section-num">02<b>Логістика</b></div>
-      <div>
-        <h2 class="section-title">Усю організацію беремо на себе</h2>
-        <p class="section-lede">Щоб ви могли повністю зосередитися на професійному перезавантаженні та нетворкінгу.</p>
+    <div class="outcomes" aria-label="Що отримає учасник після школи">
+      <div class="outcome">
+        <span class="idx">01</span>
+        <h4>Діяти впевненіше</h4>
+        <p>Відпрацювати складні розмови, кризові ситуації та професійні кордони.</p>
       </div>
-    </div>
-
-    <div class="logi">
-      <div class="cell">
-        <div class="ico-row"><span class="lbl">Локація</span><span class="pellet bg-sky"></span></div>
-        <div class="val">Виїзний формат</div>
-        <p class="desc">Львівська або Івано-Франківська область. Точна адреса буде повідомлена відібраним учасникам.</p>
+      <div class="outcome">
+        <span class="idx">02</span>
+        <h4>Будувати маршрути допомоги</h4>
+        <p>Краще взаємодіяти з колегами різних спеціальностей у межах громади.</p>
       </div>
-      <div class="cell">
-        <div class="ico-row"><span class="lbl">Дати</span><span class="pellet bg-purple"></span></div>
-        <div class="val">5—7 серпня 2026</div>
-        <p class="desc">Перша половина серпня. Заплануйте поїздку заздалегідь — трансфер організовуємо ми.</p>
-      </div>
-      <div class="cell">
-        <div class="ico-row"><span class="lbl">Тривалість</span><span class="pellet bg-green"></span></div>
-        <div class="val">2 дні інтенсиву</div>
-        <p class="desc">Насичена програма практикумів, симуляцій та вечірнього нетворкінгу.</p>
-      </div>
-      <div class="cell">
-        <div class="ico-row"><span class="lbl">Вартість</span><span class="pellet bg-yellow"></span></div>
-        <div class="val">Повністю покрита</div>
-        <p class="desc">Участь у програмі, проживання, триразове харчування та трансфер покривають організатори.</p>
+      <div class="outcome">
+        <span class="idx">03</span>
+        <h4>Запускати зміни на місці</h4>
+        <p>Отримати інструменти для адвокації, командної роботи й розвитку послуг.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============ PROGRAM ============ -->
-<section class="section" id="program" data-screen-label="04 Program">
+<section class="section" id="program" data-screen-label="03 Program">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-num">03<b>Що на вас чекає</b></div>
+      <div class="section-num">02<b>Що на вас чекає</b></div>
       <div>
-        <h2 class="section-title">Те, чому не вчать в університетах</h2>
-        <p class="section-lede">Кожен блок працює на вашу спроможність як лідера — у форматі практикумів, симуляцій та відвертих обговорень.</p>
+        <h2 class="section-title">Те, чому не вчать у медичних університетах</h2>
+        <p class="section-lede">Програма побудована навколо навичок, без яких неможливо побудувати сучасний сервіс та захистити себе на робочому місці. Ми фокусуємося на лідерстві та прикладних кейсах — у форматі практикумів, симуляцій та обговорень.</p>
       </div>
     </div>
 
     <div class="prog">
       <div class="pblock">
         <div class="pnum"><span class="bar bg-pink"></span>Блок 01</div>
-        <h4>Деескалація та етична комунікація</h4>
-        <p>Відпрацювання найскладніших ситуацій — агресія в кабінеті, гіперконтроль родичів, тиск щодо діагнозів — у безпечному форматі моделювання за підтримки досвідчених менторів.</p>
-        <div class="fmt">Peer-to-peer · симуляції</div>
+        <h4>Фахівець нової генерації</h4>
+        <p>Трансформація ролі лікаря — від класичного «діагноста в кабінеті» до системного лідера локальної екосистеми психічного здоров'я.</p>
+        <div class="fmt">Лідерство · екосистема</div>
       </div>
       <div class="pblock">
         <div class="pnum"><span class="bar bg-purple"></span>Блок 02</div>
-        <h4>Юридичний захист та права лікаря</h4>
-        <p>Практичний воркшоп зі створення вашої «правової броні»: документація як захист, грамотна реакція на необґрунтовані скарги та законне відстоювання власних кордонів.</p>
-        <div class="fmt">Воркшоп · кейси</div>
+        <h4>Етика та складна комунікація</h4>
+        <p>Деескалація конфліктів у кабінеті, робота з агресією та тиском родичів. Тонкі межі конфіденційності у трикутнику «підліток — батьки — лікар».</p>
+        <div class="fmt">Симуляції · етика</div>
       </div>
       <div class="pblock">
         <div class="pnum"><span class="bar bg-sky"></span>Блок 03</div>
-        <h4>Мультидисциплінарна взаємодія</h4>
-        <p>Розбір реальних наскрізних кейсів у змішаних командах — спільно з неврологами, педіатрами та психологами — для безперервного маршруту пацієнта в громаді.</p>
-        <div class="fmt">Командна робота</div>
+        <h4>Юридичний захист лікаря</h4>
+        <p>Практичний інструментарій «правової броні»: медична документація як юридичний щит, реакція на скарги та законний захист професійних кордонів.</p>
+        <div class="fmt">Воркшоп · документація</div>
       </div>
       <div class="pblock">
         <div class="pnum"><span class="bar bg-green"></span>Блок 04</div>
         <h4>Адвокація та «Профспілки 2.0»</h4>
-        <p>Як бути почутим у системі, захищати професійні інтереси фахівців дитячого психічного здоров'я та створювати впливові локальні спільноти.</p>
-        <div class="fmt">Стратегія · дискусії</div>
+        <p>Стратегії відстоювання агентності лікаря всередині закладу. Розбудова впливових локальних професійних спільнот.</p>
+        <div class="fmt">Адвокація · спільноти</div>
       </div>
       <div class="pblock">
         <div class="pnum"><span class="bar bg-carrot"></span>Блок 05</div>
@@ -557,35 +582,89 @@
   </div>
 </section>
 
-<!-- ============ COMING SOON ============ -->
-<section class="section" id="speakers" data-screen-label="05 Coming soon">
+<!-- ============ PARTICIPANTS ============ -->
+<section class="section" id="participants" data-screen-label="04 Participants">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-num">04<b>Незабаром</b></div>
+      <div class="section-num">03<b>Учасники</b></div>
       <div>
-        <h2 class="section-title">Деталі, які ще готуємо</h2>
-        <p class="section-lede">Ми наповнюємо ці розділи. Спікери та детальний розклад зʼявляться до старту, а звіт і фотогалерея — одразу після події.</p>
+        <h2 class="section-title">Хто може взяти участь</h2>
+        <p class="section-lede">Ми збираємо мультидисциплінарну групу фахівців, де кожна роль важлива для маршруту допомоги дитині, підлітку та родині.</p>
       </div>
     </div>
 
-    <div class="soon-grid">
-      <div class="soon-card">
-        <span class="pill bg-purple"></span>
-        <span class="badge">Незабаром</span>
-        <h4>Спікери<br/>та ментори</h4>
-        <p>Топ-експерти України, які формуватимуть мислення нової генерації фахівців. Оголосимо найближчим часом.</p>
+    <ul class="audience">
+      <li class="aud"><span class="dot bg-purple"></span><h4>Дитячі психіатри</h4></li>
+      <li class="aud"><span class="dot bg-sky"></span><h4>Дитячі неврологи</h4></li>
+      <li class="aud"><span class="dot bg-green"></span><h4>Педіатри</h4></li>
+      <li class="aud"><span class="dot bg-pink"></span><h4>Клінічні психологи</h4></li>
+      <li class="aud"><span class="dot bg-carrot"></span><h4>Терапевти мови та мовлення</h4></li>
+    </ul>
+
+    <div class="criteria" aria-label="Критерії участі">
+      <h3 class="criteria-title">Критерії участі</h3>
+      <div class="criteria-grid">
+        <div class="criterion">
+          <span class="idx">01</span>
+          <h4>Досвід</h4>
+          <p>Перші 5—10 років професійної практики.</p>
+        </div>
+        <div class="criterion">
+          <span class="idx">02</span>
+          <h4>Місце роботи</h4>
+          <p>КНП, державна лікарня або інший заклад, що працює з дітьми та підлітками.</p>
+        </div>
+        <div class="criterion">
+          <span class="idx">03</span>
+          <h4>Практичний фокус</h4>
+          <p>Безпосередня робота з викликами дитячого психічного здоров'я.</p>
+        </div>
+        <div class="criterion">
+          <span class="idx">04</span>
+          <h4>Мотивація до змін</h4>
+          <p>Готовність розвивати послуги у своєму закладі та громаді.</p>
+        </div>
       </div>
-      <div class="soon-card">
-        <span class="pill bg-sky"></span>
-        <span class="badge">Незабаром</span>
-        <h4>Детальна<br/>програма</h4>
-        <p>Погодинний розклад двох днів — сесії, практикуми та вечірні активності. Опублікуємо ближче до події.</p>
+    </div>
+
+    <div class="participant-cta">
+      <p><b>Підходите під критерії?</b> Подайте заявку до 20 червня 2026 року. Можна подаватися індивідуально або разом з колегою зі своєї громади.</p>
+      <a class="btn" href="https://docs.google.com/forms/d/1ixktZtbZDKMSo-9HHKmElhL3noa-hmHMNVOW6KnojFc/viewform?edit_requested=true" target="_blank" rel="noopener">Подати заявку <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LOGISTICS ============ -->
+<section class="section" id="logistics" data-screen-label="05 Logistics">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">04<b>Логістика</b></div>
+      <div>
+        <h2 class="section-title">Усю організацію беремо на себе</h2>
+        <p class="section-lede">Щоб ви могли повністю зосередитися на професійному перезавантаженні та нетворкінгу.</p>
       </div>
-      <div class="soon-card">
-        <span class="pill bg-green"></span>
-        <span class="badge">Після події</span>
-        <h4>Звіт<br/>та фото</h4>
-        <p>Підсумки школи, ключові інсайти та фотогалерея. Зʼявиться одразу після завершення інтенсиву.</p>
+    </div>
+
+    <div class="logi">
+      <div class="cell">
+        <div class="ico-row"><span class="lbl">Локація</span><span class="pellet bg-sky"></span></div>
+        <div class="val">Виїзний формат</div>
+        <p class="desc">Львівська або Івано-Франківська область. Точна адреса буде повідомлена відібраним учасникам.</p>
+      </div>
+      <div class="cell">
+        <div class="ico-row"><span class="lbl">Дати</span><span class="pellet bg-purple"></span></div>
+        <div class="val">5—7 серпня 2026</div>
+        <p class="desc">Заплануйте поїздку заздалегідь — трансфер організовуємо ми.</p>
+      </div>
+      <div class="cell">
+        <div class="ico-row"><span class="lbl">Тривалість</span><span class="pellet bg-green"></span></div>
+        <div class="val">3 дні інтенсиву</div>
+        <p class="desc">Насичена програма практикумів, симуляцій та вечірнього нетворкінгу.</p>
+      </div>
+      <div class="cell">
+        <div class="ico-row"><span class="lbl">Вартість</span><span class="pellet bg-yellow"></span></div>
+        <div class="val">Безкоштовно</div>
+        <p class="desc">Участь у програмі, проживання, триразове харчування та трансфер покривають організатори.</p>
       </div>
     </div>
   </div>
@@ -606,27 +685,61 @@
       <div class="step">
         <span class="num">01</span>
         <span class="state done">● Відкрито</span>
-        <div class="when">Кінець травня</div>
-        <div class="what">Відкриття реєстрації. Прийом заявок розпочато.</div>
+        <div class="when">Реєстрація відкрита</div>
+        <div class="what">Open Call стартував наприкінці травня 2026 року. Заявки вже приймаються.</div>
       </div>
       <div class="step">
         <span class="num">02</span>
         <span class="state now">● Триває</span>
-        <div class="when">20 червня</div>
-        <div class="what">Останній день прийому заявок. Не відкладайте подачу.</div>
+        <div class="when">До 20 червня 2026</div>
+        <div class="what">Останній день подачі заявки. Після дедлайну форма закривається.</div>
       </div>
       <div class="step">
         <span class="num">03</span>
         <span class="state next">○ Попереду</span>
-        <div class="when">10 липня</div>
-        <div class="what">Оголошення результатів та розсилка запрошень відібраним учасникам.</div>
+        <div class="when">До 10 липня 2026</div>
+        <div class="what">Оголошення результатів і розсилка запрошень відібраним учасникам.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMING SOON ============ -->
+<section class="section" id="speakers" data-screen-label="07 Coming soon">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">06<b>Незабаром</b></div>
+      <div>
+        <h2 class="section-title">Деталі, які ще готуємо</h2>
+        <p class="section-lede">Спікери, погодинний розклад і фотозвіт зʼявляться окремими оновленнями. Основні умови участі та таймлайн уже доступні.</p>
+      </div>
+    </div>
+
+    <div class="soon-grid">
+      <div class="soon-card">
+        <span class="pill bg-purple"></span>
+        <span class="badge">Незабаром</span>
+        <h4>Спікери<br/>та ментори</h4>
+        <p>Експерти та ментори школи будуть оголошені після фінального погодження програми.</p>
+      </div>
+      <div class="soon-card">
+        <span class="pill bg-sky"></span>
+        <span class="badge">Незабаром</span>
+        <h4>Детальна<br/>програма</h4>
+        <p>Погодинний розклад сесій, практикумів і вечірніх активностей опублікуємо ближче до події.</p>
+      </div>
+      <div class="soon-card">
+        <span class="pill bg-green"></span>
+        <span class="badge">Після події</span>
+        <h4>Звіт<br/>та фото</h4>
+        <p>Підсумки школи, ключові інсайти та фотогалерея зʼявляться після завершення інтенсиву.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============ FINAL CTA ============ -->
-<section class="cta" id="apply" data-screen-label="07 Apply">
+<section class="cta" id="apply" data-screen-label="08 Apply">
   <div class="cta-symbol" aria-hidden="true"><svg viewBox="-260 -260 520 520" id="cta-sym"></svg></div>
   <div class="wrap">
     <span class="tag">40 місць · Open Call</span>
@@ -636,12 +749,17 @@
       <a class="btn btn--accent btn--lg" href="https://docs.google.com/forms/d/1ixktZtbZDKMSo-9HHKmElhL3noa-hmHMNVOW6KnojFc/viewform?edit_requested=true" target="_blank" rel="noopener">Подати заявку на участь <span class="arrow">→</span></a>
       <div class="count"><b>40</b><span>місць<br/>усього</span></div>
     </div>
+    <div class="trust-row">
+      <span><b>Організатор:</b> MH4U · українсько-швейцарський проєкт</span>
+      <span><b>Сайт проєкту:</b> <a href="https://mh4u.in.ua" target="_blank" rel="noopener">mh4u.in.ua</a></span>
+      <span><b>Дедлайн:</b> 20 червня 2026</span>
+    </div>
   </div>
 </section>
 </main>
 
 <!-- ============ FOOTER ============ -->
-<footer class="foot" data-screen-label="08 Footer">
+<footer class="foot" data-screen-label="09 Footer">
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
@@ -651,8 +769,9 @@
       <div>
         <h5>Навігація</h5>
         <p class="row"><a href="#about">Про школу</a></p>
-        <p class="row"><a href="#logistics">Логістика</a></p>
         <p class="row"><a href="#program">Програма</a></p>
+        <p class="row"><a href="#participants">Хто може взяти участь</a></p>
+        <p class="row"><a href="#logistics">Логістика</a></p>
         <p class="row"><a href="#timeline">Таймлайн відбору</a></p>
       </div>
       <div>
